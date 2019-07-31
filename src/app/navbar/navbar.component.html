@@ -1,0 +1,41 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>      
+      <a class="navbar-brand" href="#" i18n="Welcome Message">welcome</a>
+      <a class="navbar-brand" href="#" title="SMART Movie Database">{{websitename}}</a>-
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a [routerLink]="['']" routerLinkActive="router-link-active" >Home</a></li>
+        <li *ngIf="loggedIn"><a [routerLink]="['/movies']" routerLinkActive="router-link-active" >Movies</a></li>
+        <li *ngIf="loggedIn"><a [routerLink]="['/television']" routerLinkActive="router-link-active" >Television</a></li> 
+        <li *ngIf="loggedIn"><a [routerLink]="['/events']" routerLinkActive="router-link-active" >LiveShows</a></li> 
+        <li *ngIf="loggedIn"><a [routerLink]="['/crm']" routerLinkActive="router-link-active" >CRM</a></li> 
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="">Choose Language
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/fr/">French</a></li>
+            <li><a href="/de/">German</a></li>
+            <li><a href="/">English</a></li>
+          </ul>
+        </li>
+
+        <li><a [routerLink]="['/signup']" routerLinkActive="router-link-active" ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        
+        <li *ngIf="!loggedIn"><a [routerLink]="['/login']" routerLinkActive="router-link-active" ><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
+        <li *ngIf="loggedIn" class="cursor-pointer"><a (click)="handleLogout()" ><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
